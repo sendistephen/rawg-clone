@@ -1,26 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
 import apiClient from '../services/api-client';
-
-interface Game {
-	id: number;
-	name: string;
-}
-
-interface GamesResponse {
-	count: number;
-	results: Array<Game>;
-}
+import useGames from '../hooks/useGames';
 
 function GameGrid() {
-	const [games, setGames] = useState<Game[]>([]);
-	const [error, setError] = useState('');
-
-	useEffect(() => {
-		apiClient
-			.get<GamesResponse>('/games')
-			.then((response) => setGames(response.data.results))
-			.catch((err) => setError(err.message));
-	}, []);
+	const { games, error } = useGames();
 
 	return (
 		<Fragment>
