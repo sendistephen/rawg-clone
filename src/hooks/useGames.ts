@@ -1,5 +1,5 @@
+import { GameQuery } from '../App';
 import useData from './useData';
-import { Genre } from './useGenres';
 
 export interface Platform {
 	id: number;
@@ -19,14 +19,16 @@ export interface Game {
  * @returns {{games: Array<Game>, error:string}}
  * Returns object containing two items: an array of games and a string of any error messages.
  */
-const useGames = (
-	selectedGenre: Genre | null,
-	selectedPlatform: Platform | null
-) =>
+const useGames = (gameQuery: GameQuery) =>
 	useData<Game>(
 		'/games',
-		{ params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-		[selectedGenre?.id, selectedPlatform?.id]
+		{
+			params: {
+				genres: gameQuery.genre?.id,
+				platforms: gameQuery.platform?.id,
+			},
+		},
+		[gameQuery.genre?.id, gameQuery.platform?.id]
 	);
 
 export default useGames;
