@@ -4,6 +4,7 @@
  * @returns The URL of the cropped image.
  */
 const getCroppedImageUrl = (url: string) => {
+	if (!url) return '';
 	// Find the index of the "media/" substring in the URL.
 	const target = 'media/';
 	// Find the index of the starting point of the media link and add the target length
