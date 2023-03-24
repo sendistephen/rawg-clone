@@ -1,4 +1,5 @@
 import { HStack, Switch, Text, useColorMode } from '@chakra-ui/react';
+import { HiSun } from 'react-icons/hi';
 
 function ColorModeSwitch() {
 	const { toggleColorMode, colorMode } = useColorMode();
@@ -9,7 +10,7 @@ function ColorModeSwitch() {
 				isChecked={colorMode === 'dark'}
 				onChange={toggleColorMode}
 			/>
-			<Text whiteSpace='nowrap'>Dark mode</Text>
+			<HiSun size={25}/>
 		</HStack>
 	);
 }
