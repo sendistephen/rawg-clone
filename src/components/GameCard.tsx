@@ -5,7 +5,6 @@ import CriticScore from './CriticScore';
 import Emoji from './Emoji';
 import PlatformIconList from './PlatformIconList';
 import { Link } from 'react-router-dom';
-import generateGameUrl from '../services/generateGameUrl';
 
 interface Props {
 	game: Game;

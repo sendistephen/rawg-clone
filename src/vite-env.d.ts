@@ -21,6 +21,7 @@ type Game = {
 	rating_top: number;
 	ratings_count: number;
 	description_raw: string;
+	platforms: { platform: Platform }[];
 	ratings: Rating[];
 	parent_platforms: {
 		platform: Platform;

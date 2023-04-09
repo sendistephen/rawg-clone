@@ -6,13 +6,13 @@ import PlatformIconList from './PlatformIconList';
 import Emoji from './Emoji';
 import GameRating from './GameRating';
 import GameDescription from './GameDescription';
+import GamePlatforms from './GamePlatforms';
 
 function Game() {
 	const { slug } = useParams();
 
 	const { game, isLoading, error } = useGame(slug);
-	console.log(isLoading);
-	console.log(game);
+
 	return (
 		<Flex
 			height='100vh'
@@ -20,6 +20,7 @@ function Game() {
 			backgroundSize='cover'
 			backgroundRepeat='no-repeat'
 			justifyContent='center'
+			backgroundAttachment='fixed'
 			backgroundImage={`
             linear-gradient(
                 to bottom, 
@@ -33,7 +34,7 @@ function Game() {
             ),
             url(${game?.background_image})
 `}>
-			<Flex paddingX='2' direction='column' flexWrap='wrap' alignItems='center'>
+			<Flex paddingX='2' direction='column' alignItems='center'>
 				{game && <GameBreadcrumb gameName={game.name} />}
 				<HStack
 					marginY='5'
@@ -65,32 +66,35 @@ function Game() {
 						Average Playtime: {game?.playtime} hours
 					</Text>
 				</HStack>
-				<Flex direction='column' alignItems='center'>
-					<Heading
-						textAlign='center'
-						as='h1'
-						fontSize={{ base: '4xl', md: '7xl' }}>
-						{game?.name}
-					</Heading>
+				<Heading
+					textAlign='center'
+					as='h1'
+					fontSize={{ base: '4xl', md: '7xl' }}>
+					{game?.name}
+				</Heading>
 
-					<Flex direction='column' alignItems='center'>
-						<Emoji rating={game?.rating_top || 0} showTitle={true} />
-						<Text
-							textTransform='uppercase'
-							fontSize='sm'
-							color='gray.500'
-							textDecoration='underline'
-							letterSpacing='1.2px'
-							fontWeight='light'>
-							{game?.ratings_count} Ratings
-						</Text>
-					</Flex>
+				<Flex direction='column' alignItems='center'>
+					<Emoji rating={game?.rating_top || 0} showTitle={true} />
+					<Text
+						textTransform='uppercase'
+						fontSize='sm'
+						color='gray.500'
+						textDecoration='underline'
+						letterSpacing='1.2px'
+						fontWeight='light'>
+						{game?.ratings_count} Ratings
+					</Text>
+				</Flex>
+				<Flex direction='column' alignItems='start'>
 					<Flex flexWrap='wrap' gap='4' marginY='2'>
 						{game?.ratings.map((rating) => (
 							<GameRating key={rating.id} rating={rating} />
 						))}
 					</Flex>
 					<GameDescription description={game?.description_raw as string} />
+					<Flex>
+						<GamePlatforms platforms={game?.platforms || []} />
+					</Flex>
 				</Flex>
 			</Flex>
 		</Flex>
