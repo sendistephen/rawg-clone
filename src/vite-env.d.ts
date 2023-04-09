@@ -5,6 +5,11 @@ type Platform = {
 	name: string;
 	slug: string;
 };
+type Rating = {
+	id: number;
+	title: string;
+	count: number;
+};
 
 type Game = {
 	id: number;
@@ -15,6 +20,7 @@ type Game = {
 	playtime: number;
 	rating_top: number;
 	ratings_count: number;
+	ratings: Rating[];
 	parent_platforms: {
 		platform: Platform;
 	}[];

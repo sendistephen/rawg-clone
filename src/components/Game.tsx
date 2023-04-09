@@ -4,6 +4,7 @@ import { Box, Flex, Heading, HStack, Text } from '@chakra-ui/react';
 import GameBreadcrumb from './GameBreadcrumb';
 import PlatformIconList from './PlatformIconList';
 import Emoji from './Emoji';
+import GameRating from './GameRating';
 
 function Game() {
 	const { slug } = useParams();
@@ -31,60 +32,63 @@ function Game() {
             ),
             url(${game?.background_image})
 `}>
-			<Flex direction='column' flexWrap='wrap' alignItems='center'>
-				{game && <GameBreadcrumb gameName={game.name} />}
-				<HStack
-					marginY='5'
-					spacing='4'
-					flexWrap='wrap'
-					justifyContent='center'
-					alignItems='center'>
-					<Box
-						backgroundColor='white'
-						paddingX='2'
-						paddingY='1'
-						borderRadius='md'
-						textTransform='uppercase'
-						fontSize='small'
-						color={'gray.900'}>
-						{game?.released}
-					</Box>
-					<PlatformIconList
-						platforms={game?.parent_platforms.map((p) => p.platform)}
-						color='white'
-					/>
-					<Text
-						textTransform='uppercase'
-						color={'white'}
-						letterSpacing='2px'
-						fontSize='small'
-						paddingY={{ base: '2', md: '0' }}
-						fontWeight='normal'>
-						Average Playtime: {game?.playtime} hours
-					</Text>
-				</HStack>
-				<Heading as='h1' fontSize={{ base: '4xl', md: '7xl' }} paddingX='2'>
-					{game?.name}
-				</Heading>
-				<Box>
-					<HStack>
-						<Flex
-							direction='column'
-							alignItems={{ base: 'center', md: 'start' }}>
-							<Emoji rating={game?.rating_top || 0} showTitle={true} />
-							<Text
-								textTransform='uppercase'
-								fontSize='sm'
-								color='gray.500'
-								textDecoration='underline'
-								letterSpacing='1.2px'
-								fontWeight='light'>
-								{game?.ratings_count} Ratings
-							</Text>
-						</Flex>
+			<Box paddingX='2'>
+				<Flex direction='column' flexWrap='wrap' alignItems='center'>
+					{game && <GameBreadcrumb gameName={game.name} />}
+					<HStack
+						marginY='5'
+						spacing='4'
+						flexWrap='wrap'
+						justifyContent='center'
+						alignItems='center'>
+						<Box
+							backgroundColor='white'
+							paddingX='2'
+							paddingY='1'
+							borderRadius='md'
+							textTransform='uppercase'
+							fontSize='small'
+							color={'gray.900'}>
+							{game?.released}
+						</Box>
+						<PlatformIconList
+							platforms={game?.parent_platforms.map((p) => p.platform)}
+							color='white'
+						/>
+						<Text
+							textTransform='uppercase'
+							color={'white'}
+							letterSpacing='2px'
+							fontSize='small'
+							paddingY={{ base: '2', md: '0' }}
+							fontWeight='normal'>
+							Average Playtime: {game?.playtime} hours
+						</Text>
 					</HStack>
-				</Box>
-			</Flex>
+					<Heading as='h1' fontSize={{ base: '4xl', md: '7xl' }}>
+						{game?.name}
+					</Heading>
+
+					<Flex direction='column' alignItems={{ base: 'center', md: 'start' }}>
+						<Emoji rating={game?.rating_top || 0} showTitle={true} />
+						<Text
+							textTransform='uppercase'
+							fontSize='sm'
+							color='gray.500'
+							textDecoration='underline'
+							letterSpacing='1.2px'
+							fontWeight='light'>
+							{game?.ratings_count} Ratings
+						</Text>
+					</Flex>
+				</Flex>
+				<Flex flexWrap='wrap' gap="4" marginY="2">
+					{game?.ratings.map((rating) => (
+						<GameRating key={rating.id} rating={rating} />
+					))}
+				</Flex>
+				<Text></Text>
+			</Box>
 		</Flex>
 	);
 }
