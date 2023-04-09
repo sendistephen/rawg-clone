@@ -16,7 +16,7 @@ function GameDescription({ description }: Props) {
 
 	return (
 		<Box marginY='10' maxWidth={{ base: 'xl' }}>
-			<Text fontSize='2xl' fontWeight='bold'>
+			<Text fontSize='sm' fontWeight='bold'>
 				About
 			</Text>
 			{showFullDescription ? (
@@ -30,7 +30,7 @@ function GameDescription({ description }: Props) {
 				</>
 			) : (
 				<>
-					<Text>{shortDescription}</Text>
+					<Text fontSize='sm'>{shortDescription}</Text>
 					{isLongDescription && (
 						<Button size='xs' onClick={toggleShowFullDescription}>
 							Show more

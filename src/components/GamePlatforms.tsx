@@ -11,7 +11,7 @@ function GamePlatforms({ platforms }: Props) {
 	const commaSeparatedPlatforms = platformNames?.join(', ');
 
 	return (
-		<Box>
+		<Box fontSize='sm'>
 			<Text color='gray.500'>Platforms</Text>
 			<Text>{commaSeparatedPlatforms}</Text>
 		</Box>

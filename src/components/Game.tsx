@@ -7,6 +7,7 @@ import Emoji from './Emoji';
 import GameRating from './GameRating';
 import GameDescription from './GameDescription';
 import GamePlatforms from './GamePlatforms';
+import CriticScore from './CriticScore';
 
 function Game() {
 	const { slug } = useParams();
@@ -92,8 +93,14 @@ function Game() {
 						))}
 					</Flex>
 					<GameDescription description={game?.description_raw as string} />
-					<Flex>
+					<Flex gap='4' maxWidth='sm'>
 						<GamePlatforms platforms={game?.platforms || []} />
+						<Box>
+							<Text fontSize='sm' color='gray.500'>
+								Metascore
+							</Text>
+							<CriticScore score={game?.metacritic || 0} />
+						</Box>
 					</Flex>
 				</Flex>
 			</Flex>
