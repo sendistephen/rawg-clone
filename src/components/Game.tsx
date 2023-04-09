@@ -8,6 +8,7 @@ import GameRating from './GameRating';
 import GameDescription from './GameDescription';
 import GamePlatforms from './GamePlatforms';
 import CriticScore from './CriticScore';
+import GameGenres from './GameGenres';
 
 function Game() {
 	const { slug } = useParams();
@@ -101,6 +102,9 @@ function Game() {
 							</Text>
 							<CriticScore score={game?.metacritic || 0} />
 						</Box>
+					</Flex>
+					<Flex gap='4' maxWidth='sm'>
+						<GameGenres genres={game?.genres || []} />
 					</Flex>
 				</Flex>
 			</Flex>
