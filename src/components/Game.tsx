@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Box, Flex, Heading, HStack, Text } from '@chakra-ui/react';
 import GameBreadcrumb from './GameBreadcrumb';
 import PlatformIconList from './PlatformIconList';
+import Emoji from './Emoji';
 
 function Game() {
 	const { slug } = useParams();
@@ -62,9 +63,27 @@ function Game() {
 						Average Playtime: {game?.playtime} hours
 					</Text>
 				</HStack>
-				<Heading as='h1' fontSize='4xl' paddingX="2">
+				<Heading as='h1' fontSize={{ base: '4xl', md: '7xl' }} paddingX='2'>
 					{game?.name}
 				</Heading>
+				<Box>
+					<HStack>
+						<Flex
+							direction='column'
+							alignItems={{ base: 'center', md: 'start' }}>
+							<Emoji rating={game?.rating_top || 0} showTitle={true} />
+							<Text
+								textTransform='uppercase'
+								fontSize='sm'
+								color='gray.500'
+								textDecoration='underline'
+								letterSpacing='1.2px'
+								fontWeight='light'>
+								{game?.ratings_count} Ratings
+							</Text>
+						</Flex>
+					</HStack>
+				</Box>
 			</Flex>
 		</Flex>
 	);
