@@ -128,8 +128,11 @@ function Game() {
 									<Text color='gray.500'>Release date</Text>
 									<Text>{game?.released}</Text>
 								</GridItem>
-								<GridItem colSpan={1}>
-									<GameGenres genres={game?.genres || []} />
+								<GridItem colSpan={1} fontSize='sm'>
+									<Text color='gray.500'>Developer</Text>
+									{game?.developers.map((developer) => (
+										<Text key={developer.id}>{developer.name}</Text>
+									))}
 								</GridItem>
 								<GridItem colSpan={1} fontSize='sm' textAlign='right'>
 									<Text color='gray.500'>Publisher</Text>
