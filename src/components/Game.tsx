@@ -1,6 +1,14 @@
 import useGame from '../hooks/useGame';
 import { useParams } from 'react-router-dom';
-import { Box, Flex, Heading, HStack, Text } from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Grid,
+	GridItem,
+	Heading,
+	HStack,
+	Text,
+} from '@chakra-ui/react';
 import GameBreadcrumb from './GameBreadcrumb';
 import PlatformIconList from './PlatformIconList';
 import Emoji from './Emoji';
@@ -94,18 +102,27 @@ function Game() {
 						))}
 					</Flex>
 					<GameDescription description={game?.description_raw as string} />
-					<Flex gap='4' maxWidth='sm'>
-						<GamePlatforms platforms={game?.platforms || []} />
-						<Box>
-							<Text fontSize='sm' color='gray.500'>
-								Metascore
-							</Text>
-							<CriticScore score={game?.metacritic || 0} />
-						</Box>
-					</Flex>
-					<Flex gap='4' maxWidth='sm'>
-						<GameGenres genres={game?.genres || []} />
-					</Flex>
+
+					<Grid templateColumns='repeat(2, 1fr)' gap={4} maxWidth='sm'>
+						<GridItem colSpan={1}>
+							<GamePlatforms platforms={game?.platforms || []} />
+						</GridItem>
+						<GridItem colSpan={1} textAlign='right'>
+							<Box>
+								<Text fontSize='sm' color='gray.500'>
+									Metascore
+								</Text>
+								<CriticScore score={game?.metacritic || 0} />
+							</Box>
+						</GridItem>
+						<GridItem colSpan={1}>
+							<GameGenres genres={game?.genres || []} />
+						</GridItem>
+						<GridItem colSpan={1} fontSize='sm' textAlign='right'>
+							<Text color='gray.500'>Release date</Text>
+							<Text>{game?.released}</Text>
+						</GridItem>
+					</Grid>
 				</Flex>
 			</Flex>
 		</Flex>

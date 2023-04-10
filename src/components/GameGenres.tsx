@@ -6,7 +6,7 @@ interface Props {
 }
 function GameGenres({ genres }: Props) {
 	return (
-		<Box fontSize='sm' marginY="2">
+		<Box fontSize='sm' marginY='2' flex='1'>
 			<Text color='gray.500'>Genres</Text>
 			<HStack>
 				{genres.map((genre) => (
