@@ -26,6 +26,16 @@ type Game = {
 	ratings_count: number;
 	description_raw: string;
 	metacritic: number;
+	developers: {
+		id: number;
+		name: string;
+		slug: string;
+	}[];
+	publishers: {
+		id: number;
+		name: string;
+		slug: string;
+	}[];
 	genres: Genre[];
 	platforms: { platform: Platform }[];
 	ratings: Rating[];
