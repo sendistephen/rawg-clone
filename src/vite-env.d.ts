@@ -15,6 +15,12 @@ type Genre = {
 	name: string;
 	slug: string;
 };
+type Tag = {
+	id: number;
+	name: string;
+	slug: string;
+};
+
 type Game = {
 	id: number;
 	slug: string;
@@ -36,6 +42,7 @@ type Game = {
 		name: string;
 		slug: string;
 	}[];
+	tags: Tag[];
 	genres: Genre[];
 	platforms: { platform: Platform }[];
 	ratings: Rating[];

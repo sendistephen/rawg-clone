@@ -19,6 +19,7 @@ import GameDescription from './GameDescription';
 import GamePlatforms from './GamePlatforms';
 import CriticScore from './CriticScore';
 import GameGenres from './GameGenres';
+import GameTags from './GameTags';
 
 function Game() {
 	const { slug } = useParams();
@@ -141,6 +142,10 @@ function Game() {
 									))}
 								</GridItem>
 							</Grid>
+							<Box marginY='2'>
+								<Text color='gray.500'>Tags</Text>
+								<GameTags tags={game?.tags || []} />
+							</Box>
 						</Flex>
 					</Flex>
 				</Flex>
