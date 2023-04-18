@@ -15,7 +15,7 @@ function GameDescription({ description }: Props) {
 	const isLongDescription = description?.length > 200;
 
 	return (
-		<Box marginY='10' maxWidth={{ base: 'xl' }}>
+		<Box marginY='10'>
 			<Text fontSize='sm' fontWeight='bold'>
 				About
 			</Text>
