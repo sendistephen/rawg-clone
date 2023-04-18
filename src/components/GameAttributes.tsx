@@ -1,22 +1,17 @@
-import { HStack, Text, theme } from '@chakra-ui/react';
+import { Button, Stack, Text, theme } from '@chakra-ui/react';
 import PlatformIconList from './PlatformIconList';
 
 interface Props {
-	game: Game;
+	game: Game | null;
 }
 function GameAttributes({ game }: Props) {
 	return (
-		<HStack marginY='5' spacing='4' flexWrap='wrap'>
-			<Text
-				backgroundColor={theme.colors.white}
-				color={theme.colors.gray[900]}
-				paddingX='2'
-				paddingY='1'
-				borderRadius='md'
-				textTransform='uppercase'
-				fontSize='small'>
-				{game?.released}
-			</Text>
+		<Stack
+			direction={{ base: 'column', md: 'row' }}
+			spacing={{ base: 2, md: 3 }}
+			align='center'
+			marginY={2}>
+			<Button fontSize='sm'>{game?.released}</Button>
 			<PlatformIconList
 				platforms={game?.parent_platforms.map((p) => p.platform)}
 				color=''
@@ -29,7 +24,7 @@ function GameAttributes({ game }: Props) {
 				fontWeight='normal'>
 				Average Playtime: {game?.playtime} hours
 			</Text>
-		</HStack>
+		</Stack>
 	);
 }
 

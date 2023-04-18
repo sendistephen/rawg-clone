@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Game from './components/Game';
+import Game from './Pages/Game';
 import Home from './Pages/Home';
 import Layout from './Pages/Layout';
 
