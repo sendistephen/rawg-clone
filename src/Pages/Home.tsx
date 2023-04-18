@@ -21,7 +21,7 @@ function Home() {
 					<GenreList />
 				</GridItem>
 			</Show>
-			<GridItem area='main'>
+			{/* <GridItem area='main'>
 				<Box paddingLeft={2}>
 					<GameHeading />
 					<Flex marginBottom={5}>
@@ -32,7 +32,7 @@ function Home() {
 					</Flex>
 				</Box>
 				<GameGrid />
-			</GridItem>
+			</GridItem> */}
 		</Grid>
 	);
 }

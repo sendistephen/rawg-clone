@@ -8,7 +8,7 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Layout />,
 		children: [
-			{ index: true, element: Home }, // Root page -> home page
+			{ index: true, element: <Home /> }, // Root page -> home page
 			{
 				path: 'games/:slug',
 				element: <Game />, // game details page

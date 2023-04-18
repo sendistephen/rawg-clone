@@ -21,7 +21,7 @@ type Tag = {
 	slug: string;
 };
 
-type Game = {
+interface Game {
 	id: number;
 	slug: string;
 	name: string;
@@ -50,4 +50,19 @@ type Game = {
 	parent_platforms: {
 		platform: Platform;
 	}[];
-};
+}
+
+interface GameQuery {
+	genreId?: number;
+	platformId?: number;
+	sortOrder?: string;
+	searchText?: string;
+}
+
+interface GameQueryStore {
+	gameQuery: GameQuery;
+	setSearchText: (searchText: string) => void;
+	setGenreId: (genreId: number) => void;
+	setPlatformId: (platformId: number) => void;
+	setSortOrder: (sortOrder: string) => void;
+}
