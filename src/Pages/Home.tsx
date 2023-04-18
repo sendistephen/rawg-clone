@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Show } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react';
 import GameGrid from '../components/GameGrid';
 import GameHeading from '../components/GameHeading';
 import GenreList from '../components/GenreList';
@@ -25,7 +25,7 @@ function Home() {
 				<Box paddingLeft={2}>
 					<GameHeading />
 					<Flex marginBottom={5}>
-						<Box marginRight={5}>{/* <PlatformSelector /> */}</Box>
+						<Box marginRight={5}>{<PlatformSelector />}</Box>
 						{/* <SortSelector /> */}
 					</Flex>
 				</Box>
