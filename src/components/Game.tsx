@@ -9,6 +9,7 @@ import {
 	HStack,
 	Text,
 	Progress,
+	Link,
 } from '@chakra-ui/react';
 
 import GameBreadcrumb from './GameBreadcrumb';
@@ -142,9 +143,15 @@ function Game() {
 									))}
 								</GridItem>
 							</Grid>
-							<Box marginY='2'>
+							<Box marginY='2' fontSize='sm'>
 								<Text color='gray.500'>Tags</Text>
 								<GameTags tags={game?.tags || []} />
+							</Box>
+							<Box marginY='2' fontSize='sm'>
+								<Text color='gray.500'>Website</Text>
+								<Link href={`${game?.website}`} target='_blank'>
+									{game?.website}
+								</Link>
 							</Box>
 						</Flex>
 					</Flex>

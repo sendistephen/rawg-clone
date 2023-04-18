@@ -32,6 +32,7 @@ type Game = {
 	ratings_count: number;
 	description_raw: string;
 	metacritic: number;
+	website: string;
 	developers: {
 		id: number;
 		name: string;
