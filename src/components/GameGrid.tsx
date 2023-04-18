@@ -4,10 +4,6 @@ import GameCard from './GameCard';
 import GameCardSkeleton from './Skeletons/GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
 
-interface Props {
-	gameQuery: GameQuery;
-}
-
 function GameGrid() {
 	const { data, error, isLoading } = useGames();
 

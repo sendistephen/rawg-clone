@@ -19,7 +19,7 @@ function GenreList() {
 
 	return (
 		<>
-			<Heading fontSize='2xl' marginBottom={3}>
+			<Heading fontSize='2xl' marginBottom={3} marginTop={9}>
 				Genres
 			</Heading>
 			<List>
@@ -37,7 +37,7 @@ function GenreList() {
 							<Button
 								fontWeight={genre.id === selectedGenreId ? 'bold' : 'normal'}
 								onClick={() => setSelectedGenreId(genre.id)}
-								fontSize='lg'
+								fontSize='md'
 								whiteSpace='normal'
 								textAlign='left'
 								variant='link'

@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 function Layout() {
 	return (
 		<>
-			{/* <Navbar /> */}
+			<Navbar />
 			<Box padding={10}>
 				<Outlet />
 			</Box>
