@@ -1,17 +1,19 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App';
+import { createBrowserRouter } from 'react-router-dom';
 import Game from './components/Game';
+import Home from './Pages/Home';
+import Layout from './Pages/Layout';
 
-export default function Router() {
-	const router = createBrowserRouter([
-		{
-			path: '/',
-			element: <App />,
-		},
-		{
-			path: '/games/:slug',
-			element: <Game />,
-		},
-	]);
-	return <RouterProvider router={router} />;
-}
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Layout />,
+		children: [
+			{ index: true, element: Home }, // Root page -> home page
+			{
+				path: 'games/:slug',
+				element: <Game />, // game details page
+			},
+		],
+	},
+]);
+export default router;

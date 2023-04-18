@@ -4,14 +4,16 @@ import App from './App';
 import './index.css';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import theme from './theme';
-import Router from './router';
+
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		{/* wrap the App in ChakraProvider */}
 		<ChakraProvider theme={theme}>
 			<ColorModeScript initialColorMode={theme.config.initialColorMode} />
-			<Router />
+			<RouterProvider router={router} />
 		</ChakraProvider>
 	</React.StrictMode>
 );
