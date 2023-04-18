@@ -9,7 +9,7 @@ import React from 'react';
 
 function GameBreadcrumb({ gameName }: { gameName: string }) {
 	return (
-		<Flex direction='column' marginTop='30px'>
+		<Flex direction='column'>
 			<Breadcrumb textTransform='uppercase' fontSize='10px' color='gray.500'>
 				<BreadcrumbItem>
 					<BreadcrumbLink

@@ -16,7 +16,7 @@ interface Props {
 	platforms: Platform[] | undefined;
 	color?: string;
 }
-function PlatformIconList({ platforms, color = 'gray.500' }: Props) {
+function PlatformIconList({ platforms, color = '' }: Props) {
 	const iconMap: { [key: string]: IconType } = {
 		mac: FaApple,
 		android: FaAndroid,
