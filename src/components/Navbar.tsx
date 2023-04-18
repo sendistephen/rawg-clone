@@ -6,7 +6,7 @@ import SearchInput from './SearchInput';
 
 function Navbar() {
 	return (
-		<HStack padding='10px'>
+		<HStack paddingX='10px'>
 			<Link to='/'>
 				<Image src={logo} boxSize='60px' />
 			</Link>
