@@ -1,6 +1,5 @@
-import { HStack, Image } from '@chakra-ui/react';
+import { Heading, HStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
 import ColorModeSwitch from './ColorModeSwitch';
 import SearchInput from './SearchInput';
 
@@ -8,7 +7,7 @@ function Navbar() {
 	return (
 		<HStack paddingX='10px'>
 			<Link to='/'>
-				<Image src={logo} boxSize='60px' />
+				<Heading as='h1'>RawG</Heading>
 			</Link>
 			<SearchInput />
 			<ColorModeSwitch />

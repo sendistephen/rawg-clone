@@ -26,7 +26,6 @@ import GameAttributes from '../components/GameAttributes';
 
 function Game() {
 	const { slug } = useParams();
-
 	const { game, isLoading, error } = useGame(slug);
 
 	return (
