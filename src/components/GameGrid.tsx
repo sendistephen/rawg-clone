@@ -8,8 +8,8 @@ interface Props {
 	gameQuery: GameQuery;
 }
 
-function GameGrid({ gameQuery }: Props) {
-	const { data, error, isLoading } = useGames(gameQuery);
+function GameGrid() {
+	const { data, error, isLoading } = useGames();
 
 	const skeletons = Array.from({ length: 8 });
 

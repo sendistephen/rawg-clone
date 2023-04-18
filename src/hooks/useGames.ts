@@ -1,4 +1,4 @@
-import { GameQuery } from '../App';
+import useGameQueryStore from '../store';
 import useData from './useData';
 
 export interface Platform {
@@ -21,23 +21,26 @@ export interface Game {
  * @returns {{games: Array<Game>, error:string}}
  * Returns object containing two items: an array of games and a string of any error messages.
  */
-const useGames = (gameQuery: GameQuery) =>
-	useData<Game>(
+const useGames = () => {
+	const gameQuery = useGameQueryStore((s) => s.gameQuery);
+
+	const { data, isLoading, error } = useData<Game>(
 		'/games',
 		{
 			params: {
-				genres: gameQuery.genre?.id,
-				platforms: gameQuery.platform?.id,
+				genres: gameQuery.genreId,
+				platforms: gameQuery.platformId,
 				ordering: gameQuery.sortOrder,
 				search: gameQuery.searchText,
 			},
 		},
 		[
-			gameQuery.genre?.id,
-			gameQuery.platform?.id,
+			gameQuery.genreId,
+			gameQuery.platformId,
 			gameQuery.sortOrder,
 			gameQuery.searchText,
 		]
 	);
-
+	return { data, isLoading, error };
+};
 export default useGames;

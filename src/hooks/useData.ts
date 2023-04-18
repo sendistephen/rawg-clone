@@ -27,7 +27,7 @@ function useData<T>(
 					...requestConfig,
 				})
 				.then((response) => {
-					setData(response.data.results);
+					setData(response?.data.results);
 					setIsLoading(false);
 				})
 				.catch((err) => {
