@@ -5,7 +5,7 @@ import SearchInput from './SearchInput';
 
 function Navbar() {
 	return (
-		<HStack paddingX='10px'>
+		<HStack paddingTop={10} paddingX='10px'>
 			<Link to='/'>
 				<Heading as='h1'>RawG</Heading>
 			</Link>
