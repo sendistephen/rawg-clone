@@ -26,7 +26,7 @@ function Home() {
 					<GameHeading />
 					<Flex marginBottom={5}>
 						<Box marginRight={5}>{<PlatformSelector />}</Box>
-						{/* <SortSelector /> */}
+						<SortSelector />
 					</Flex>
 				</Box>
 				{/* <GameGrid /> */}
