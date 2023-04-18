@@ -21,18 +21,16 @@ function Home() {
 					<GenreList />
 				</GridItem>
 			</Show>
-			{/* <GridItem area='main'>
+			<GridItem area='main'>
 				<Box paddingLeft={2}>
 					<GameHeading />
 					<Flex marginBottom={5}>
-						<Box marginRight={5}>
-							<PlatformSelector />
-						</Box>
-						<SortSelector />
+						<Box marginRight={5}>{/* <PlatformSelector /> */}</Box>
+						{/* <SortSelector /> */}
 					</Flex>
 				</Box>
-				<GameGrid />
-			</GridItem> */}
+				{/* <GameGrid /> */}
+			</GridItem>
 		</Grid>
 	);
 }
