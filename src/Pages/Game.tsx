@@ -23,6 +23,7 @@ import CriticScore from '../components/CriticScore';
 import GameGenres from '../components/GameGenres';
 import GameTags from '../components/GameTags';
 import GameAttributes from '../components/GameAttributes';
+import GameScreenshots from '../components/GameScreenshots';
 
 function Game() {
 	const { slug } = useParams();
@@ -106,7 +107,9 @@ function Game() {
 							</Link>
 						</Box>
 					</GridItem>
-					<GridItem>Under development</GridItem>
+					<GridItem>
+						<GameScreenshots gameId={game?.id} />
+					</GridItem>
 				</SimpleGrid>
 			)}
 		</>

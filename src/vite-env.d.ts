@@ -66,3 +66,10 @@ interface GameQueryStore {
 	setPlatformId: (platformId: number) => void;
 	setSortOrder: (sortOrder: string) => void;
 }
+
+interface Screenshot {
+	id: number;
+	image: string;
+	width: number;
+	height: number;
+}
