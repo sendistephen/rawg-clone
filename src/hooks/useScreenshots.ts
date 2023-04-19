@@ -8,7 +8,7 @@ interface FetchScreenshotResponse {
 }
 
 function useScreenshots(gameId: number | undefined) {
-	const [screenshoots, setScreenshots] = useState<Screenshot[]>([]);
+	const [screenshots, setScreenshots] = useState<Screenshot[]>([]);
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -32,7 +32,7 @@ function useScreenshots(gameId: number | undefined) {
 		return () => controller.abort();
 	}, []);
 
-	return { screenshoots, isLoading, error };
+	return { screenshots, isLoading, error };
 }
 
 export default useScreenshots;
