@@ -73,3 +73,8 @@ interface Screenshot {
 	width: number;
 	height: number;
 }
+
+interface FetchResponse<T> {
+	count: number;
+	results: T[];
+}
