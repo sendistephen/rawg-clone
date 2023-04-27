@@ -9,7 +9,7 @@ function GameGrid() {
 
 	const skeletons = Array.from({ length: 8 });
 
-	if (error) return <Text>{error}</Text>;
+	// if (error) return <Text>{error.message}</Text>;
 	return (
 		<SimpleGrid
 			columns={{ sm: 1, md: 2, lg: 3, xl: 5, '2xl': 8 }}
@@ -21,7 +21,7 @@ function GameGrid() {
 						<GameCardSkeleton />
 					</GameCardContainer>
 				))}
-			{data?.map((game) => (
+			{data?.results.map((game) => (
 				<GameCardContainer key={game.id}>
 					<GameCard game={game} />
 				</GameCardContainer>

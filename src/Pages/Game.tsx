@@ -27,7 +27,7 @@ import GameScreenshots from '../components/GameScreenshots';
 
 function Game() {
 	const { slug } = useParams();
-	const { game, isLoading, error } = useGame(slug);
+	const { data: game, isLoading, error } = useGame(slug);
 
 	return (
 		<>

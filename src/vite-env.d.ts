@@ -20,7 +20,6 @@ type Tag = {
 	name: string;
 	slug: string;
 };
-
 interface Game {
 	id: number;
 	slug: string;

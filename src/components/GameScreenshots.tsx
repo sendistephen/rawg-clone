@@ -7,15 +7,15 @@ interface Props {
 }
 function GameScreenshots({ gameId }: Props) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const { screenshots, isLoading, error } = useScreenshots(gameId);
+	const { data, isLoading, error } = useScreenshots(gameId);
 
 	if (isLoading) return null;
-	if (error) return <p>{error}</p>;
+	// if (error) return <p>{error}</p>;
 
 	return (
 		<>
 			<SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
-				{screenshots?.map((file: Screenshot) => (
+				{data?.results?.map((file: Screenshot) => (
 					<img
 						onClick={onOpen}
 						key={file.id}
@@ -27,7 +27,7 @@ function GameScreenshots({ gameId }: Props) {
 			</SimpleGrid>
 			{isOpen && (
 				<ScreenshotModal
-					screenshots={screenshots}
+					screenshots={data?.results}
 					isOpen={isOpen}
 					onClose={onClose}
 				/>
